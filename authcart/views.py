@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 
@@ -6,14 +6,26 @@ from django.contrib import messages
 
 
 def signup(request):
-    print("I am running the signup function.")
-    if(request.method == "POST"):
-        print('It is POST request')
-    else:
-        print('It is GET method')
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['pass1']
+        confirm_password = request.POST['pass2']
+        if password != confirm_password:
+            return HttpResponse("password incorrrect")
+            # return render(request,'signup.html')
+        try:
+            if User.objects.get(username=email):
+                return HttpResponse("email already exists")
+           # return render()
+            
+        except Exception as identifier:
+            pass
 
-    return render(request,'signup.html')
 
+        user = User.objects.create_user(email,email,password)
+        user.save()
+        return redirect('/login/')
+    return render(request,"signup.html")
 
 
 def handlelogin(request):
@@ -26,4 +38,4 @@ def handlelogin(request):
 def handlelogout(request):
    
    
-   return render(request,'/auth/login.html')
+   return render(request,'login.html')
