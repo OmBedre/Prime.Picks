@@ -1,11 +1,21 @@
-{% extends "base.html" %} {% block content %}
- {% block title %}
- <br>
- {% endblock title %}
-<div class="card bg-light p-3">
-  <h3 class="text-dark">SignUp:</h3>
+{% extends 'base.html' %} 
+{% block title %}Signup{% endblock title %} 
+{% block content %}
 
-  <form action="auth/signup/" method="post">
+<div class="card bg-light p-5">
+
+  {% for message in messages %}
+
+  <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+
+
+  <h3 class="text-dark">Signup</h3>
+
+  <form action="/auth/signup/" method="post">
     {% csrf_token %}
     <br />
 
@@ -13,18 +23,17 @@
     <div class="form-group">
       <input
         type="email"
-        class="form-control p-3"
+        class="form-control p-2"
         id="email"
         name="email"
         required
       />
     </div>
-
     <label for="pass1">Password</label>
     <div class="form-group">
       <input
         type="password"
-        class="form-control p-3"
+        class="form-control p-2"
         id="pass1"
         name="pass1"
         required
@@ -34,22 +43,17 @@
     <div class="form-group">
       <input
         type="password"
-        class="form-control p-3"
+        class="form-control p-2"
         id="pass2"
         name="pass2"
         required
       />
     </div>
+    <br />
+    <button type="submit" class="btn btn-dark">SignIn</button>
 
     <br />
-    <button type="submit" class="btn btn-dark m-5">
-      <a href="auth/signup/">Create a new User</a>
-    </button>
-
-    <br />
-
-    Already User? <a href="auth/login/" class="p-4">Login</a>
-
+    Already User? <a href="/auth/login/">Login</a>
     <br />
   </form>
 </div>
