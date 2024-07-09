@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -61,9 +62,28 @@ class ActivateAccountView(View):
 
 
 def handlelogin(request):
+    if request.method == "POST":
+
+        username = request.POST['email']
+        userpassword = request.POST['pass1']
+        myuser = authenticate(username = username,password = userpassword)
+
+        if myuser is not None:
+            login(request,myuser)
+            messages.success(request,"Login Success")
+            return redirect('/')
+        
+        else:
+            messages.error(request,"Invalid Credentials")
+            return redirect('/auth/login')
+        
     return render(request, 'login.html')
 
 
 
 def handlelogout(request):
-    return render(request, 'login.html')
+    logout(request)
+    messages.info(request,"Logout Suceess")
+    return redirect('/auth/login')
+
+

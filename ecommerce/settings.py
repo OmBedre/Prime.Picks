@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ecommerceapp',
     'authcart',
+    'phonenumber_field',
 ]
 
 
