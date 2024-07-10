@@ -9,3 +9,16 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Product(models.Model):
+    product_id = models.AutoField
+    product_name = models.CharField(max_length=100)
+    category = models.CharField(max_length=100,default='')
+    subcategory = models.CharField(max_length=50,default='')
+    price = models.PositiveIntegerField()
+    desc = models.CharField(max_length=300)
+    image = models.ImageField(upload_to='images/images')
+
+    def __str__(self):
+        return self.product_name
