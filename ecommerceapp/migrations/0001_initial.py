@@ -2,23 +2,23 @@
 
 from django.db import migrations, models
 
-
 class Migration(migrations.Migration):
-
-    initial = True
-
+    
+    initial = True  # Marks this as the initial migration
+    
     dependencies = [
+        # No dependencies for this migration
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Contact',
+            name='Contact',  # Model name
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('email', models.EmailField(max_length=254)),
-                ('desc', models.CharField(max_length=500)),
-                ('phonenumber', models.IntegerField()),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),  # Primary key field
+                ('name', models.CharField(max_length=50)),  # CharField for name
+                ('email', models.EmailField(max_length=254)),  # EmailField for email
+                ('desc', models.CharField(max_length=500)),  # CharField for description
+                ('phonenumber', models.IntegerField()),  # IntegerField for phone number
             ],
         ),
     ]

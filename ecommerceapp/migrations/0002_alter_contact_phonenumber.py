@@ -7,13 +7,13 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ecommerceapp', '0001_initial'),
+        ('ecommerceapp', '0001_initial'),  # Dependency on the previous migration
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='contact',
-            name='phonenumber',
-            field=phonenumber_field.modelfields.PhoneNumberField(max_length=128, region=None),
+            model_name='contact',  # Model name being altered
+            name='phonenumber',  # Field name being altered
+            field=phonenumber_field.modelfields.PhoneNumberField(max_length=128, region=None),  # Updated PhoneNumberField definition
         ),
     ]

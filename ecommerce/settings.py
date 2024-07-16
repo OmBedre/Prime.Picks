@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ecommerceapp',
-    'authcart',
-    'phonenumber_field',
+    'ecommerceapp',    # Added ecommerceapp application
+    'authcart',        # Added authcart application
+    'phonenumber_field',  # Added phonenumber_field for phone number field support
 ]
 
 
@@ -56,12 +56,12 @@ MIDDLEWARE = [
     
 ]
 
-ROOT_URLCONF = 'ecommerce.urls'
+ROOT_URLCONF = 'ecommerce.urls'  # Assuming your main urls.py is named 'ecommerce'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['templates'],  # Directory for templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,8 +81,8 @@ TEMPLATES = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',  # Using SQLite as the database engine
+        'NAME': BASE_DIR / 'db.sqlite3',         # Path to the database file
         
     }
 }
@@ -119,36 +119,32 @@ USE_I18N = True
 USE_TZ = True
 
 
-#   SENDING EMAILS
-
+# Email settings for sending emails
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'bedreom02@gmail.com'
-EMAIL_HOST_PASSWORD = 'xcngcirzmyvgcuzr'
+EMAIL_HOST_USER = 'YOUR EMAIL'           # Replace with your email
+EMAIL_HOST_PASSWORD = 'YOUR PASSWORD'   # Replace with your email password
 
-
-
-
-
-NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+STATIC_URL = 'static/'             # URL prefix for static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]   # Directory for static files
 
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'           # URL prefix for media files
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')   # Directory where uploaded files are saved
  
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Customize message tags for Bootstrap compatibility
 from  django.contrib import messages
 MESSAGE_TAGS = {
-    messages.ERROR : 'danger',
+    messages.ERROR : 'danger',   # Map Django error messages to Bootstrap 'danger' class
     
 }

@@ -6,14 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ecommerceapp', '0004_rename_products_product'),
+        ('ecommerceapp', '0004_rename_products_product'),  # Dependency on the previous migration
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='price',
-            field=models.PositiveIntegerField(default=1500),
-            preserve_default=False,
+            model_name='product',  # Target model to add the field
+            name='price',          # Name of the new field
+            field=models.PositiveIntegerField(default=1500),  # Field definition (PositiveIntegerField with a default value)
+            preserve_default=False,  # Set to True if you want to preserve existing default values in the database
         ),
     ]

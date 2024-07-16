@@ -12,7 +12,7 @@
   </div>
   {% endfor %}
 
-
+  
   <h3 class="text-dark">Login</h3>
 
   <form action="/auth/login/" method="post">
@@ -38,9 +38,13 @@
         name="pass1"
         required
       />
+    </div>
+   
     <br />
     <button type="submit" class="btn btn-dark">Login</button>
-
+    <br>
+    <span> Forget Password? <a href="/auth/request-reset-email/">Reset</a></span>
+    <br>
     <br />
     New User? <a href="/auth/signup/">Signup</a>
     <br />

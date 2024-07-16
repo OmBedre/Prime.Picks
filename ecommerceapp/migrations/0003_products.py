@@ -6,19 +6,19 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ecommerceapp', '0002_alter_contact_phonenumber'),
+        ('ecommerceapp', '0002_alter_contact_phonenumber'),  # Dependency on the previous migration
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Products',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('product_name', models.CharField(max_length=100)),
-                ('category', models.CharField(default='', max_length=100)),
-                ('subcategory', models.CharField(default='', max_length=50)),
-                ('desc', models.CharField(max_length=300)),
-                ('image', models.ImageField(upload_to='images/images')),
+            name='Products',  # Model name being created
+            fields=[  # Fields of the 'Products' model
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),  # Auto-generated primary key
+                ('product_name', models.CharField(max_length=100)),  # Product name field
+                ('category', models.CharField(default='', max_length=100)),  # Category field with default value
+                ('subcategory', models.CharField(default='', max_length=50)),  # Subcategory field with default value
+                ('desc', models.CharField(max_length=300)),  # Description field
+                ('image', models.ImageField(upload_to='images/images')),  # Image field for product image upload
             ],
         ),
     ]
