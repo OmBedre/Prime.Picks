@@ -19,3 +19,13 @@ Clone the repository:
    git clone https://github.com/OmBedre/Prime.Picks.git
    cd Prime.Picks
 ```
+
+after that run for download dependencies
+ ```bash
+  pip install -r requirements.txt
+```
+for runnig the project
+```bash
+  python manage.py runserver
+```
+
